@@ -10,9 +10,9 @@ end
 db = SQLite3::Database.new sketch_file
 metadata = db.execute('select * from metadata')[7][1]
 payload = db.execute('select * from payload')[0][1]
-open(File.basename(sketch_file) + ".payload", 'w') do |f|
+open(File.basename(sketch_file) + "-payload.bplist", 'w') do |f|
   f.write payload
 end
-open(File.basename(sketch_file) + ".metadata", 'w') do |f|
+open(File.basename(sketch_file) + "-metadata.nscoding", 'w') do |f|
   f.write metadata
 end
